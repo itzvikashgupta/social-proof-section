@@ -23,7 +23,7 @@ This Social proof section challenge solution presented here showcases a sleek an
 ### Links
 
 - Solution URL: [https://github.com/itzvikashgupta/social-proof-section]
-- Live Site URL: [https://social-proof-section-soln.netlify.app/]
+- Live Site URL: [https://social-proof-section-soln-2024.netlify.app/]
 
 ## My Process
 
