@@ -1,0 +1,300 @@
+:root {
+  --clr-primary-900: hsl(300, 43%, 22%);
+  --clr-primary-400: hsl(333, 48%, 64%);
+
+  --clr-neutral-900: hsl(303, 10%, 53%);
+  --clr-neutral-400: hsl(300, 24%, 96%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --ff-base: "League Spartan", sans-serif;
+
+  --fs-100: 1.7rem;
+  --fs-150: 1.9rem;
+  /* --fs-900: clamp(1.14rem, 4.15rem + 1.5vw, 5.6rem); */
+  --fs-900: 5.6rem;
+
+
+  --fw-light: 400;
+  --fw-regular: 500;
+  --fw-black: 700;
+}
+
+@media (width<=375px) {
+  :root {
+    --fs-900: 4.15rem;
+  }
+}
+
+/***** css reset Section *****/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+textarea,
+select,
+span,
+blockquote {
+  font: inherit;
+}
+
+p,
+span,
+button,
+blockquote,
+h1,
+h2,
+h3 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+li {
+  list-style: none;
+  list-style-position: inside;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/***** End css reset Section *****/
+
+body {
+  font-family: var(--ff-base);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-regular);
+  color: var(--clr-primary-900);
+  padding: 7.3rem 2.4rem;
+  background-image: url(images/bg-pattern-top-desktop.svg),
+    url(images/bg-pattern-bottom-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: left top, right bottom;
+  min-height: 100dvh;
+  display: grid;
+  align-content: center;
+
+  @media (width<=584px) {
+    background-image: url(images/bg-pattern-top-mobile.svg),
+      url(images/bg-pattern-bottom-mobile.svg);
+    background-position: left top, right bottom;
+    background-size: 100vw;
+  }
+}
+
+.wrapper {
+  max-width: 144rem;
+  margin-block: auto;
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.social-proof--section {
+  --section-gap: 7rem;
+  --brs: 0.8rem;
+
+  max-width: 1110px;
+  margin-inline: auto;
+  display: grid;
+  gap: var(--section-gap);
+
+  @media (width<=1024px) {
+    --section-gap: 2rem;
+  }
+}
+
+.section-top {
+  display: flex;
+  gap: var(--section-gap);
+}
+
+.section-header {
+  flex: 1;
+
+  & .section-heading {
+    font-size: var(--fs-900);
+    font-weight: var(--fw-black);
+    line-height: 0.85;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.2rem;
+    width: 88%;
+  }
+
+  & p {
+    font-size: var(--fs-150);
+    color: var(--clr-neutral-900);
+    line-height: 1.3;
+    letter-spacing: -0.05rem;
+    width: 88%;
+  }
+}
+
+.section-reviews {
+  flex: 1.07;
+  font-weight: var(--fw-black);
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+    padding-block: 2rem;
+  }
+
+  & li {
+    background-color: var(--clr-neutral-400);
+    padding: 1.5rem 3rem;
+    border-radius: var(--brs);
+    width: 440px;
+    display: flex;
+    gap: 2rem;
+  }
+
+  & li::before {
+    content: "";
+    display: inline-block;
+    width: 12rem;
+    height: 1.7rem;
+    background-image: url("images/icon-star.svg"), url("images/icon-star.svg"),
+      url("images/icon-star.svg"), url("images/icon-star.svg"),
+      url("images/icon-star.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 0, 2.4rem 0, 4.8rem 0, 7.2rem, 9.6rem 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  & li:first-of-type {
+    align-self: flex-start;
+  }
+  & li:last-of-type {
+    align-self: flex-end;
+  }
+
+  & li:nth-child(2) {
+    align-self: center;
+  }
+}
+
+.section-testimonials {
+  color: var(--clr-neutral-100);
+
+  & ul {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  & li {
+    background-color: var(--clr-primary-900);
+    padding: 4rem 3.1rem;
+    border-radius: var(--brs);
+    flex: 1 1 30rem;
+  }
+
+  @media (width>1024px) {
+    & li:nth-child(2) {
+      transform: translateY(1.5rem);
+    }
+    & li:nth-child(3) {
+      transform: translateY(3rem);
+    }
+  }
+
+  & .user-profile--info {
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  & .user-picture {
+    border-radius: 50%;
+    width: 41px;
+    height: 41px;
+    border: 0.2rem solid var(--clr-neutral-100);
+  }
+
+  & .user-status {
+    font-weight: var(--fw-light);
+    color: var(--clr-primary-400);
+  }
+
+  & blockquote {
+    font-weight: var(--fw-light);
+    font-size: 1.675rem;
+  }
+}
+
+/***** media queries Section *****/
+@media (width<=1024px) {
+  .section-top {
+    --section-gap: 2rem;
+    flex-direction: column;
+  }
+
+  .section-header :is(.section-heading, p) {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  .section-testimonials ul {
+    gap: 1.5rem;
+  }
+}
+
+@media (width<=510px) {
+  .section-header :is(.section-heading, p) {
+    width: 100%;
+  }
+
+  .section-reviews ul li {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+}
+/***** End media queries Section *****/
